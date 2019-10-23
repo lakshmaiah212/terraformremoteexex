@@ -7,7 +7,7 @@ resource "aws_key_pair" "ec2key" {
     destination = "/home/ec2-user/.ssh/id_rsa.pub"
   
 }
-  key_name = "publicKey"
+  key_name = "/home/ec2-user/.ssh/id_rsa.pub"
   public_key = "${file("/home/ec2-user/.ssh/id_rsa.pub")}"
 }
 
@@ -31,7 +31,7 @@ resource "aws_instance" "sonar" {
             host     = "${self.public_ip}"
             port = 22
             password= "${var.SSHPASS}"
-            private_key = "${file("home/ec2-user/.ssh/id_rsa")}"
+            private_key = "${file2("home/ec2-user/.ssh/id_rsa")}"
           
             
           }
