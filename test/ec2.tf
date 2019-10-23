@@ -31,7 +31,6 @@ resource "aws_instance" "sonar" {
 
   tags = {
     Name = "studentapp"
-    project_name = "${var.project_name}"
     project_env = "TEST"
   }
 }
