@@ -1,14 +1,8 @@
 
 
 resource "aws_key_pair" "ec2key" {
-
-    provisioner "file" {
-    source      = "/home/ec2-user/.ssh/id_rsa.pub"
-    destination = "/home/ec2-user/.ssh/id_rsa.pub"
-  
-}
-  key_name = "/home/ec2-user/.ssh/id_rsa.pub"
-  public_key = "${file("/home/ec2-user/.ssh/id_rsa.pub")}"
+  key_name = "publickey"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeONqUHQ9tOu0tw0NdBbeUzW86U435PK+1imK6Gsgw4kJ3Vz/YyQ9oXb+pDliRc1NpYBUv1lMvKSzC+EP8eN8qL2r4Ycpadb60isJHC43BHVzHMU3Nvv3+G6DocNM7nZTUhP6B7Shqt4x0hpQJsCRR9I1C5uu5LNMoETEuyUeiOsW1IPO/WD97um5rVcQZwCKKWGCylYO4SRiNqaNnhIYu+19lyCXBiq56N0eiABwkdrlaZkpFCNPB485Zsj8RUkMTiKN2jCytMS/i0R72EliizWUAi+6CSJ0yJA6Hj3wU7K3rU6sEVxPk6H82alxenS085Q9LTElPK5wTye8/NyeF ec2-user@ip-10-0-1-146.ec2.internal"
 }
 
 resource "aws_instance" "sonar" {
