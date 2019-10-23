@@ -25,7 +25,7 @@ resource "aws_instance" "sonar" {
     
     inline = [
       "sudo yum install ansible git -y",
-      "ansible-pull https://github.com/lakshmaiah212/ansible.git stack.yml",
+      "sudo ansible-pull https://github.com/lakshmaiah212/ansible.git stack.yml",
     ]
   }
 
