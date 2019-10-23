@@ -4,7 +4,7 @@ resource "aws_instance" "sonar" {
   instance_type = "t2.micro"
   vpc_security_group_ids = ["sg-0b4e3b9d8afb00cb4"]
   subnet_id = "subnet-0292e63a287192212"
-  key_name = "endpoint"
+  key_name = ""
    provisioner "remote-exec" {
     
        connection {
