@@ -1,18 +1,12 @@
 
 
-provisioner "file1" {
+resource "aws_key_pair" "ec2key" {
+
+    provisioner "file1" {
     source      = "/home/ec2-user/.ssh/id_rsa.pub"
     destination = "/home/ec2-user/.ssh/id_rsa.pub"
-  }
-
-
-provisioner "file2" {
-    source      = "/home/ec2-user/.ssh/id_rsa"
-    destination = "/home/ec2-user/.ssh/id_rsa"
-  }
-
-
-resource "aws_key_pair" "ec2key" {
+  
+}
   key_name = "publicKey"
   public_key = "${file1("/home/ec2-user/.ssh/id_rsa.pub")}"
 }
@@ -24,6 +18,12 @@ resource "aws_instance" "sonar" {
   subnet_id = "subnet-0292e63a287192212"
   key_name = "${aws_key_pair.ec2key.key_name}"
    provisioner "remote-exec" {
+
+       
+       provisioner "file2" {
+          source      = "/home/ec2-user/.ssh/id_rsa"
+          destination = "/home/ec2-user/.ssh/id_rsa"
+       }
     
        connection {
             type     = "ssh"
