@@ -1,3 +1,7 @@
+provider "aws" {
+  
+}
+
 
 resource "aws_key_pair" "ec2key" {
   key_name = "publicKey"
