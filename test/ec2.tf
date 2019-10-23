@@ -12,7 +12,7 @@ resource "aws_instance" "sonar" {
             host     = "${self.public_ip}"
             port = 22
             password= "${var.SSHPASS}"
-            private_key = "${file("/home/ec2-user/.ssh/id_rsa")}"
+        
           
             
           }
