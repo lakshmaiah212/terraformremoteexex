@@ -1,0 +1,4 @@
+variable "DBUSER" {}
+
+variable "DBPASS" {}
+
