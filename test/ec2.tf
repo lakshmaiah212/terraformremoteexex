@@ -1,6 +1,6 @@
 resource "aws_key_pair" "ec2key" {
   key_name = "publicKey"
-  public_key = "${file("~/var/lib/jenkins/.ssh/id_rsa.pub")}"
+  public_key = "${file("/var/lib/jenkins/.ssh/id_rsa.pub")}"
 }
 resource "aws_instance" "sonar" {
   ami           = "ami-0b69ea66ff7391e80"
@@ -16,7 +16,7 @@ resource "aws_instance" "sonar" {
             host     = "${self.public_ip}"
             port = 22
             password= "devops321"
-            private_key = "${file("~/var/lib/jenkins/.ssh/id_rsa")}"
+            private_key = "${file("/var/lib/jenkins/.ssh/id_rsa")}"
             
             
           }
