@@ -13,7 +13,7 @@ resource "aws_instance" "sonar" {
             host     = "${self.public_ip}"
             port = 22
             password= "devops321"
-            private_key = "${file("/var/lib/jenkins/workspace/endpoint.ppk")}"
+            private_key = "${file("/home/ec2-user/endpoint.ppk")}"
             
             
           }
